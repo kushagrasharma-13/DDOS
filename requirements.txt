@@ -2,3 +2,4 @@ scapy
 Flask
 scikit-learn
 joblib
+psutil
