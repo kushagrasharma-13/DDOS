@@ -5,7 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from flask import Flask, render_template
 import psutil
-from defense.mitigation import mitigation_status
+from defense.mitigation import get_mitigation_status
 
 app = Flask(__name__)
 
@@ -15,7 +15,7 @@ def get_network_traffic():
 
     traffic_metrics['packets_per_second'] = net_io.packets_sent + net_io.packets_recv
     traffic_metrics['server_load'] = psutil.cpu_percent(interval=1) / 100.0
-    traffic_metrics['mitigation_actions'] = mitigation_status
+    traffic_metrics['mitigation_actions'] = get_mitigation_status()
 
     return traffic_metrics
 
