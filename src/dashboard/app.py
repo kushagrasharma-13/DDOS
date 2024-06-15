@@ -13,8 +13,8 @@ def get_network_traffic():
     traffic_metrics = {}
     net_io = psutil.net_io_counters()
 
-    traffic_metrics['packets_per_second'] = net_io.packets_sent + net_io.packets_recv
-    traffic_metrics['server_load'] = psutil.cpu_percent(interval=1) / 100.0
+    traffic_metrics['packets_per_second'] = net_io.packets_recv
+    traffic_metrics['server_load'] = psutil.cpu_percent(interval=1)*1000
     traffic_metrics['mitigation_actions'] = get_mitigation_status()
 
     return traffic_metrics
