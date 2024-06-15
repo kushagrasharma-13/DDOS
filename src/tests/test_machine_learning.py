@@ -1,5 +1,9 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import unittest
-from machine_learning.model import DDoSModel
+from defense.machine_learning.model import DDoSModel
 import numpy as np
 
 class TestDDoSModel(unittest.TestCase):

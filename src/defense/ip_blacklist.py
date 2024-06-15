@@ -3,8 +3,8 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from datetime import datetime, timedelta
-from src.config import BLACKLIST_DURATION_MINUTES
-from src.utils import logger
+BLACKLIST_DURATION_MINUTES = 30
+from utils import logger
 
 blacklisted_ips = {}
 

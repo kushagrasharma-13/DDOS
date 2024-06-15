@@ -3,7 +3,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from datetime import datetime, timedelta
-from src.defense.ip_blacklist import blacklist_ip, clear_expired_blacklists, blacklisted_ips
+from defense.ip_blacklist import blacklist_ip, clear_expired_blacklists, blacklisted_ips
 import time
 
 if __name__ == "__main__":

@@ -1,7 +1,8 @@
-# src/machine_learning/model.py
 from sklearn.ensemble import RandomForestClassifier
-import numpy as np
 import joblib
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
 
 class DDoSModel:
     def __init__(self):
@@ -9,6 +10,7 @@ class DDoSModel:
 
     def train(self, X_train, y_train):
         self.model.fit(X_train, y_train)
+        return self.model
 
     def predict(self, X_test):
         return self.model.predict(X_test)

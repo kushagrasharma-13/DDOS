@@ -5,9 +5,11 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from collections import defaultdict
 from threading import Thread, Lock
 from scapy.layers.inet import IP
-from src.utils import logger, send_alert
-from src.config import ALERT_THRESHOLD_PACKETS_PER_SECOND, THRESHOLD_PACKETS_PER_SECOND
-from src.defense.ip_blacklist import blacklist_ip
+from utils import logger, send_alert
+THRESHOLD_PACKETS_PER_SECOND = 30
+BLACKLIST_DURATION_MINUTES = 2
+ALERT_THRESHOLD_PACKETS_PER_SECOND = 30
+from defense.ip_blacklist import blacklist_ip
 import time
 
 packet_counts = defaultdict(int)
@@ -26,7 +28,6 @@ def analyze_packet(packet):
         with lock:
             packet_counts[src_ip] += 1
 
-            # Check for high packet rate from the same IP
             if packet_counts[src_ip] > ALERT_THRESHOLD_PACKETS_PER_SECOND:
                 msg = f"Potential DDoS attack detected from IP: {src_ip}"
                 send_alert(msg)
